@@ -875,7 +875,7 @@ catch(err) {
 if (runningTests) {
   require("bicio/tests/test-helper");
 } else {
-  require("bicio/app")["default"].create({"name":"bicio","version":"0.0.0+6db36e27"});
+  require("bicio/app")["default"].create({"name":"bicio","version":"0.0.0+588972ee"});
 }
 
 /* jshint ignore:end */
