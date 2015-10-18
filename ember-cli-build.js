@@ -5,7 +5,7 @@ module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
       fingerprint: {
           exclude: [],
-          prepend: '/bicio/'
+          prepend: 'http://eduarbo.github.io/bicio/'
       }
   });
   app.import('bower_components/mapbox.js/mapbox.js');
