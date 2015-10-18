@@ -8,11 +8,11 @@ module.exports = function(environment) {
     locationType: 'auto',
     contentSecurityPolicy: {
         'default-src': "'none'",
-        'script-src': "'self'",
-        'font-src': "'self'",
-        'connect-src': "'self' a.tiles.mapbox.com b.tiles.mapbox.com",
-        'img-src': "'self' data: a.tiles.mapbox.com b.tiles.mapbox.com",
-        'style-src': "'self'",
+        'script-src': "'self' mt1.googleapis.com maps.googleapis.com mt0.googleapis.com 'unsafe-eval'",
+        'font-src': "'self' fonts.gstatic.com fonts.googleapis.com",
+        'connect-src': "'self' api.googleapis.com a.tiles.mapbox.com b.tiles.mapbox.com",
+        'img-src': "'self' data: mt0.googleapis.com mt1.googleapis.com csi.gstatic.com maps.gstatic.com maps.googleapis.com api.mapbox.com a.tiles.mapbox.com b.tiles.mapbox.com",
+        'style-src': "'self' 'unsafe-inline' fonts.googleapis.com",
         'media-src': "'self'"
     },
     EmberENV: {
