@@ -12,6 +12,7 @@
     "loader.js": "ember-cli/loader.js#3.3.0",
     "qunit": "~1.18.0",
     "foundation": "~5.5.0",
-    "mapbox.js": "~2.2.1"
+    "mapbox.js": "~2.2.1",
+    "leaflet.draw": "~0.2.4"
   }
 }

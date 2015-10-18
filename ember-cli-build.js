@@ -7,6 +7,8 @@ module.exports = function(defaults) {
   });
   app.import('bower_components/mapbox.js/mapbox.js');
   app.import('bower_components/mapbox.js/mapbox.css');
+  app.import('bower_components/leaflet.draw/dist/leaflet.draw.js');
+  app.import('bower_components/leaflet.draw/dist/leaflet.draw.css');
 
   // Use `app.import` to add additional libraries to the generated
   // output files.
