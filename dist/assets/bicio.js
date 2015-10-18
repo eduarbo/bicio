@@ -51,6 +51,7 @@ define('bicio/components/map-box', ['exports'], function (exports) {
             //     mapTypeId: google.maps.MapTypeId.ROADMAP
             // });
             var map = L.mapbox.map($map, 'mapbox.run-bike-hike').setView([40, -74.50], 9);
+            L.control.locate().addTo(map);
 
             var featureGroup = L.featureGroup().addTo(map);
 
@@ -759,7 +760,7 @@ define('bicio/tests/components/map-box.jshint', function () {
 
   QUnit.module('JSHint - components');
   QUnit.test('components/map-box.js should pass jshint', function(assert) { 
-    assert.ok(false, 'components/map-box.js should pass jshint.\ncomponents/map-box.js: line 23, col 11, Missing semicolon.\ncomponents/map-box.js: line 1, col 16, \'Ember\' is not defined.\ncomponents/map-box.js: line 11, col 21, \'L\' is not defined.\ncomponents/map-box.js: line 13, col 30, \'L\' is not defined.\ncomponents/map-box.js: line 15, col 13, \'L\' is not defined.\ncomponents/map-box.js: line 25, col 9, \'Ember\' is not defined.\ncomponents/map-box.js: line 31, col 13, \'Ember\' is not defined.\n\n7 errors'); 
+    assert.ok(false, 'components/map-box.js should pass jshint.\ncomponents/map-box.js: line 1, col 16, \'Ember\' is not defined.\ncomponents/map-box.js: line 11, col 21, \'L\' is not defined.\ncomponents/map-box.js: line 12, col 9, \'L\' is not defined.\ncomponents/map-box.js: line 14, col 30, \'L\' is not defined.\ncomponents/map-box.js: line 16, col 13, \'L\' is not defined.\ncomponents/map-box.js: line 26, col 9, \'Ember\' is not defined.\ncomponents/map-box.js: line 32, col 13, \'Ember\' is not defined.\n\n7 errors'); 
   });
 
 });
@@ -875,7 +876,7 @@ catch(err) {
 if (runningTests) {
   require("bicio/tests/test-helper");
 } else {
-  require("bicio/app")["default"].create({"name":"bicio","version":"0.0.0+588972ee"});
+  require("bicio/app")["default"].create({"name":"bicio","version":"0.0.0+3e366b2f"});
 }
 
 /* jshint ignore:end */
