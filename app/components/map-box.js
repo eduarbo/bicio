@@ -9,6 +9,7 @@ export default Ember.Component.extend({
         //     mapTypeId: google.maps.MapTypeId.ROADMAP
         // });
         const map = L.mapbox.map($map, 'mapbox.run-bike-hike').setView([40, -74.50], 9);
+        L.control.locate().addTo(map);
 
         const featureGroup = L.featureGroup().addTo(map);
 
@@ -20,7 +21,7 @@ export default Ember.Component.extend({
 
         map.on('draw:created', function (e) {
             featureGroup.addLayer(e.layer);
-        })
+        });
 
         Ember.debug(`[map-box] creating ${this.toString()}`);
         this.set('map', map);

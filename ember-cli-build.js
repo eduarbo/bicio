@@ -8,10 +8,13 @@ module.exports = function(defaults) {
           prepend: 'http://eduarbo.github.io/bicio/'
       }
   });
+
   app.import('bower_components/mapbox.js/mapbox.js');
   app.import('bower_components/mapbox.js/mapbox.css');
   app.import('bower_components/leaflet.draw/dist/leaflet.draw.js');
   app.import('bower_components/leaflet.draw/dist/leaflet.draw.css');
+  app.import('bower_components/leaflet.locatecontrol/dist/L.Control.Locate.mapbox.css');
+  app.import('bower_components/leaflet.locatecontrol/dist/L.Control.Locate.min.js');
 
   // Use `app.import` to add additional libraries to the generated
   // output files.
