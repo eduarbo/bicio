@@ -15,7 +15,6 @@
     "mapbox.js": "~2.2.1",
     "leaflet.draw": "~0.2.4",
     "google-map": "~1.1.4",
-    "leaflet.locatecontrol": "~0.45.0",
-    "fontawesome": "~4.4.0"
+    "leaflet.locatecontrol": "~0.45.0"
   }
 }
