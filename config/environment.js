@@ -4,8 +4,8 @@ module.exports = function (environment) {
     var ENV = {
         modulePrefix: 'bicio',
         environment: environment,
-        baseURL: '/',
-        locationType: 'auto',
+        baseURL: '/bicio',
+        locationType: 'hash',
         contentSecurityPolicy: {
             'default-src': "'none'",
             'script-src': "'self' mt1.googleapis.com maps.googleapis.com mt0.googleapis.com 'unsafe-eval'",
@@ -49,7 +49,7 @@ module.exports = function (environment) {
     }
 
     if (environment === 'production') {
-
+        ENV.baseURL = '/bicio'
     }
 
     return ENV;
