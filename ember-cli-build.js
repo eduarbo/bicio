@@ -4,7 +4,6 @@ var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
       fingerprint: {
-          enabled: true,
           exclude: [],
           prepend: 'http://eduarbo.github.io/bicio/'
       }
