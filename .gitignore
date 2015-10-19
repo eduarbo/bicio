@@ -21,3 +21,4 @@ testem.log
 /.jshintrc
 /.travis.yml
 /.watchmanconfig
+/dist
