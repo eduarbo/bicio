@@ -29,8 +29,6 @@ module.exports = function (environment) {
     };
 
     if (environment === 'development') {
-        ENV.rootURL = 'http://eduarbo.github.io/bicio/';
-        ENV.baseURL = '/';
         // ENV.APP.LOG_RESOLVER = true;
         // ENV.APP.LOG_ACTIVE_GENERATION = true;
         // ENV.APP.LOG_TRANSITIONS = true;

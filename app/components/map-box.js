@@ -8,7 +8,10 @@ export default Ember.Component.extend({
         //     zoom: 13,
         //     mapTypeId: google.maps.MapTypeId.ROADMAP
         // });
-        const map = L.mapbox.map($map, 'mapbox.run-bike-hike').setView([40, -74.50], 9);
+        const map = L.mapbox.map($map, 'eduarbo.no42ckmo')
+            .locate({setView: true, maxZoom: 14});
+
+        // display 'show me where I am' button
         L.control.locate().addTo(map);
 
         const featureGroup = L.featureGroup().addTo(map);
@@ -19,9 +22,11 @@ export default Ember.Component.extend({
             }
         }).addTo(map);
 
+        // Events
         map.on('draw:created', function (e) {
             featureGroup.addLayer(e.layer);
         });
+        map.on('locationfound', this.onLocationFound.bind(this));
 
         Ember.debug(`[map-box] creating ${this.toString()}`);
         this.set('map', map);
@@ -32,5 +37,14 @@ export default Ember.Component.extend({
             Ember.debug(`[map-box] destroying ${this.toString()}`);
             this.set('map', null);
         }
-    }.on('willDestroyElement')
+    }.on('willDestroyElement'),
+
+    onLocationFound: function (e) {
+        var radius = e.accuracy / 2,
+            map = this.get('map');
+
+        L.marker(e.latlng).addTo(map);
+
+        L.circle(e.latlng, radius).addTo(map);
+    }
 });
