@@ -1,35 +1,44 @@
+/* global L */
+import Ember from 'ember';
+
 export default Ember.Component.extend({
-    map: null,
+    map: null, // Cache Leaflet Map object
 
     initMap: function () {
         const $map = this.$('.map').get(0);
-        // const map = new google.maps.Map($map, {
-        //     center: new google.maps.LatLng(40.718217, -73.998284),
-        //     zoom: 13,
-        //     mapTypeId: google.maps.MapTypeId.ROADMAP
-        // });
-        const map = L.mapbox.map($map, 'eduarbo.no42ckmo')
-            .locate({setView: true, maxZoom: 14});
+        const map = L.mapbox.map($map);
+
+         // Initialise the FeatureGroup to store editable layers
+        const drawnItems = new L.FeatureGroup();
+        map.addLayer(drawnItems);
+
+        // Initialise the draw control and pass it the FeatureGroup of editable layers
+        const drawControl = new L.Control.Draw({
+            edit: {
+                featureGroup: drawnItems
+            }
+        });
+        map.addControl(drawControl);
 
         // display 'show me where I am' button
-        L.control.locate().addTo(map);
+        map.addControl(new L.control.locate());
 
-        const featureGroup = L.featureGroup().addTo(map);
-
-        new L.Control.Draw({
-            edit: {
-                featureGroup: featureGroup
-            }
-        }).addTo(map);
-
-        // Events
-        map.on('draw:created', function (e) {
-            featureGroup.addLayer(e.layer);
+        // center map in current position
+        map.locate({
+            setView: true,
+            maxZoom: 14
         });
-        map.on('locationfound', this.onLocationFound.bind(this));
+
+        // Add Google map layer
+        map.addLayer(new L.Google('ROADMAP'));
+
+        this.set('map', map);
+
+        // Setup map event listeners
+        map.on('draw:created', this._onDrawCreated, this);
+        map.on('locationfound', this._onLocationFound, this);
 
         Ember.debug(`[map-box] creating ${this.toString()}`);
-        this.set('map', map);
     }.on('didInsertElement'),
 
     destroyMap: function () {
@@ -39,12 +48,28 @@ export default Ember.Component.extend({
         }
     }.on('willDestroyElement'),
 
-    onLocationFound: function (e) {
+
+    // Map events ////////////////////////////////////////////////////////// {{{
+
+    _onDrawCreated: function (e) {
+        var type = e.layerType,
+            layer = e.layer,
+            map = this.get('map');
+
+        if (type === 'marker') {
+            // Do marker specific actions
+        }
+
+        // Do whatever else you need to. (save to db, add to map etc)
+        map.addLayer(layer);
+    },
+
+    _onLocationFound: function (e) {
         var radius = e.accuracy / 2,
             map = this.get('map');
 
         L.marker(e.latlng).addTo(map);
-
         L.circle(e.latlng, radius).addTo(map);
     }
+    // }}}
 });
