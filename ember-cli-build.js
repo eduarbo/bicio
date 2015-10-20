@@ -22,8 +22,8 @@ module.exports = function(defaults) {
       prepend: true
   });
   app.import('bower_components/mapbox.js/mapbox.css');
-  app.import('bower_components/leaflet.draw/dist/leaflet.draw.js');
   app.import('bower_components/leaflet.draw/dist/leaflet.draw.css');
+  app.import('bower_components/leaflet.draw/dist/leaflet.draw.js');
   app.import('bower_components/leaflet.locatecontrol/dist/L.Control.Locate.mapbox.css');
   app.import('bower_components/leaflet.locatecontrol/dist/L.Control.Locate.min.js');
   app.import('vendor/leaflet-google.js');
