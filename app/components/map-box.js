@@ -2,10 +2,11 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+    classNames: ['map'],
     map: null, // Cache Leaflet Map object
 
     initMap: function () {
-        const $map = this.$('.map').get(0);
+        const $map = this.$().get(0);
         const map = L.mapbox.map($map);
 
          // Initialise the FeatureGroup to store editable layers
