@@ -2,20 +2,7 @@
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function(defaults) {
-  var app = new EmberApp(defaults, {
-      fingerprint: {
-          enabled: false, // TODO: remove this later
-          exclude: [],
-          prepend: 'http://eduarbo.github.io/bicio/'
-      }
-  });
-
-  app.import('bower_components/mapbox.js/mapbox.js');
-  app.import('bower_components/mapbox.js/mapbox.css');
-  app.import('bower_components/leaflet.draw/dist/leaflet.draw.js');
-  app.import('bower_components/leaflet.draw/dist/leaflet.draw.css');
-  app.import('bower_components/leaflet.locatecontrol/dist/L.Control.Locate.mapbox.css');
-  app.import('bower_components/leaflet.locatecontrol/dist/L.Control.Locate.min.js');
+  var app = new EmberApp(defaults, {});
 
   // Use `app.import` to add additional libraries to the generated
   // output files.
@@ -29,6 +16,17 @@ module.exports = function(defaults) {
   // modules that you would like to import into your application
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
+
+  app.import('bower_components/mapbox.js/mapbox.js', {
+      type: 'vendor',
+      prepend: true
+  });
+  app.import('bower_components/mapbox.js/mapbox.css');
+  app.import('bower_components/leaflet.draw/dist/leaflet.draw.js');
+  app.import('bower_components/leaflet.draw/dist/leaflet.draw.css');
+  app.import('bower_components/leaflet.locatecontrol/dist/L.Control.Locate.mapbox.css');
+  app.import('bower_components/leaflet.locatecontrol/dist/L.Control.Locate.min.js');
+  app.import('vendor/leaflet-google.js');
 
   return app.toTree();
 };
