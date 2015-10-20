@@ -8,11 +8,11 @@ module.exports = function (environment) {
         locationType: 'hash',
         contentSecurityPolicy: {
             'default-src': "'none'",
-            'script-src': "'self' mt1.googleapis.com maps.googleapis.com mt0.googleapis.com 'unsafe-eval'",
-            'font-src': "'self' fonts.gstatic.com fonts.googleapis.com",
-            'connect-src': "'self' api.googleapis.com a.tiles.mapbox.com b.tiles.mapbox.com",
-            'img-src': "'self' data: api.tiles.mapbox.com mt0.googleapis.com mt1.googleapis.com csi.gstatic.com maps.gstatic.com maps.googleapis.com api.mapbox.com a.tiles.mapbox.com b.tiles.mapbox.com",
-            'style-src': "'self' 'unsafe-inline' fonts.googleapis.com",
+            'script-src': "'self' 'unsafe-eval' *.googleapis.com",
+            'font-src': "'self' *.gstatic.com *.googleapis.com",
+            'connect-src': "'self' *.googleapis.com *.mapbox.com",
+            'img-src': "'self' data: *.mapbox.com *.googleapis.com *.gstatic.com",
+            'style-src': "'self' 'unsafe-inline' *.googleapis.com",
             'media-src': "'self'"
         },
         EmberENV: {
@@ -49,7 +49,7 @@ module.exports = function (environment) {
     }
 
     if (environment === 'production') {
-        ENV.baseURL = '/bicio'
+        ENV.baseURL = '/bicio';
     }
 
     return ENV;
