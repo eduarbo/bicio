@@ -1,2 +1,20 @@
-<p>Create your route</p>
-{{map-box}}
+<div class="row collapsed">
+  <div class="large-10 columns">
+    <input type="text" placeholder="Nombre de la ruta">
+  </div>
+  <div class="large-2 columns text-right">
+    <input id="privacidad" type="checkbox">
+    <label class="radius secondary label" for="privacidad"><i class="fa fa-lock"></i> Privado</label>
+  </div>
+</div>
+<div class="row collapse map-content">
+  <div class="large-12 columns" role="content">
+    {{map-box}}
+  </div>
+</div>
+
+<div class="row">
+  <div class="large-12 columns" role="content">
+    <textarea placeholder="Descripción de la ruta"></textarea>
+  </div>
+</div>

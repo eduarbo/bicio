@@ -1,0 +1,30 @@
+.map-content {
+  .columns {
+    padding: 0;
+  }
+
+  // $columns: "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve";
+
+  // @for $i from 1 through length($columns) {
+  //   .vertical.#{nth($columns, $i)}-up .item {
+  //     height: 1 / $i * 100%;
+  //   }
+  // }
+}
+
+.actions-bar {
+  display: block;
+
+  label {
+    font-size: 0.8rem;
+  }
+
+  .fa {
+    font-size: 2rem;
+  }
+
+  a.item {
+    padding: 1.25rem 0;
+    background: #00C0F2;
+  }
+}

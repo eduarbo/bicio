@@ -1,5 +1,7 @@
-@import "settings";
+@import 'settings';
+@import 'bower_components/font-awesome/scss/font-awesome';
+@import 'foundation';
 
-@import "bower_components/font-awesome/scss/font-awesome";
-@import "foundation";
-@import "main";
+@import 'base';
+@import 'routes';
+@import 'components';
