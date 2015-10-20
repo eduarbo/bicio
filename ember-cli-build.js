@@ -1,5 +1,6 @@
 /* global require, module */
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
+var Funnel = require('broccoli-funnel');
 
 module.exports = function(defaults) {
   var app = new EmberApp(defaults, {});
@@ -17,10 +18,11 @@ module.exports = function(defaults) {
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
 
-  app.import('bower_components/mapbox.js/mapbox.js', {
-      type: 'vendor',
-      prepend: true
+  var extraAssets = new Funnel('bower_components/font-awesome/fonts', {
+      destDir: '/fonts'
   });
+
+  app.import('bower_components/mapbox.js/mapbox.js', { type: 'vendor' });
   app.import('bower_components/mapbox.js/mapbox.css');
   app.import('bower_components/leaflet.draw/dist/leaflet.draw.css');
   app.import('bower_components/leaflet.draw/dist/leaflet.draw.js');
@@ -28,5 +30,5 @@ module.exports = function(defaults) {
   app.import('bower_components/leaflet.locatecontrol/dist/L.Control.Locate.min.js');
   app.import('vendor/leaflet-google.js');
 
-  return app.toTree();
+  return app.toTree(extraAssets);
 };
