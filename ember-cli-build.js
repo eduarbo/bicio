@@ -3,7 +3,11 @@ var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 var Funnel = require('broccoli-funnel');
 
 module.exports = function(defaults) {
-  var app = new EmberApp(defaults, {});
+  var app = new EmberApp(defaults, {
+      fingerprint: {
+          enabled: false // TODO: remove this later
+      }
+  });
 
   // Use `app.import` to add additional libraries to the generated
   // output files.
