@@ -3,3 +3,29 @@
   font-size: 2.6rem;
   line-height: 2rem;
 }
+
+// FLUID/FIXED GRID //////////////////////////////////////////////////////// {{{
+@mixin fixed-fluid($width, $sufix) {
+  &.row {
+    padding-#{$sufix}: $width;
+  }
+
+  .columns.fixed-column {
+    width: $width;
+    margin-#{$sufix}: -$width;
+  }
+}
+
+@mixin fixed-fluid-right($width) {
+  @include fixed-fluid($width, right);
+}
+
+@mixin fixed-fluid-left($width) {
+  @include fixed-fluid($width, left);
+}
+// }}}
+
+
+.edit-map-details {
+  @include fixed-fluid-right(200px);
+}
